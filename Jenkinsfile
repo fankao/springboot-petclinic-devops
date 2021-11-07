@@ -7,12 +7,12 @@ pipeline{
  	stages {
      stage('Build'){
 		steps{
-			sh './mvnw clean install'
+			sh 'chmod +x ./mvnw clean install'
 		}   
     }
      stage('Test'){
 		 steps{
-			 sh './mvnw test'
+			 sh 'chmod +x ./mvnw test'
 		 }
     }
 		stage('Build Docker image') {
