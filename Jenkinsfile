@@ -7,12 +7,12 @@ pipeline{
  	stages {
      stage('Build'){
 		steps{
-			sh 'mvn clean install'
+			sh './mvnw clean install'
 		}   
     }
      stage('Test'){
 		 steps{
-			 sh 'mvn test'
+			 sh './mvnw test'
 		 }
     }
 		stage('Build Docker image') {
