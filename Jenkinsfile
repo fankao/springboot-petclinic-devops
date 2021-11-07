@@ -21,14 +21,12 @@ pipeline{
 			}
 		}
 		stage('Login') {
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
+			
 		}
 
 		stage('Push image to DockerHub') {
-
 			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				sh 'docker push 02039921/spring-petclinic-devops:latest'
 			}
 		}
