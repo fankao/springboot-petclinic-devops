@@ -1,17 +1,19 @@
 pipeline{
-
 	agent any
-
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
 
  	stages {
      stage('Build'){
-        sh 'mvn clean install'
+		steps{
+			sh 'mvn clean install'
+		}   
     }
      stage('Test'){
-      sh 'mvn clean test'
+		 steps{
+			 sh 'mvn test'
+		 }
     }
 		stage('Build Docker image') {
 			steps {
